@@ -1,6 +1,7 @@
 export const ADD_TO_FAV = "ADD_TO_FAV";
 export const REMOVE_FROM_FAV = "REMOVE_FROM_FAV"
 export const GET_JOBS = "GET_JOBS"
+export const GET_ERROR = "GET_ERROR"
 
 export const addToFav = (company) => ({
   type: ADD_TO_FAV,
@@ -28,6 +29,9 @@ export const addToFavoritesWithThunk = (query) => {
 
       } else {
         console.log("error");
+        dispatch({
+          type: GET_ERROR,
+        });
       }
     } catch (error) {
       console.log(error);

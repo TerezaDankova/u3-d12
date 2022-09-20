@@ -18,6 +18,7 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 const Job = ({ data, favourites, addToFavourites, onClickAgainRemoveClass }) => {
+  
   const isFav = favourites.includes(data.company_name);
   
   const toggleFavourite = () => {
@@ -28,13 +29,13 @@ const Job = ({ data, favourites, addToFavourites, onClickAgainRemoveClass }) => 
 
   return (
     <Row
-      className="mx-0 mt-3 p-3"
-      style={{ border: "1px solid #00000033", borderRadius: 4 }}>
+      className="mx-0 mt-2 p-3"
+      style={{ border: "1px solid #00000033", borderRadius: 4, backgroundColor: " #adadad9b"}}>
       <Col xs={3} className="d-flex">
-        <Link to={`/${data.company_name}`} style={{color: "grey"}}>{data.company_name}</Link>
+        <Link to={`/${data.company_name}`} style={{color: "white"}}>{data.company_name}</Link>
       </Col>
       <Col xs={8}>
-        <Link to={{ pathname: data.url }} target="_blank" style={{color: "grey"}}>
+        <Link to={{ pathname: data.url }} target="_blank" style={{color: "white"}}>
           {data.title}
         </Link>
       </Col>

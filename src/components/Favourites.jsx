@@ -1,6 +1,7 @@
 import { Container, Row, Col, ListGroup, ListGroupItem, Button } from "react-bootstrap";
 import { connect } from "react-redux";
 import { removeFromFav } from "../redux/actions";
+import { useNavigate, useLocation} from "react-router-dom";
 
 const mapStateToProps = state => { return state.favourites }
   
@@ -11,6 +12,13 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 const Favourites = ({ favourites, removeFromFav }) => {
+
+  const navigate = useNavigate(); 
+  const location = useLocation(); 
+  console.log("LOCATION pathname", location.pathname);
+
+  
+
   return (
     <Container>
       <Row>
@@ -19,10 +27,10 @@ const Favourites = ({ favourites, removeFromFav }) => {
           <ListGroup>
             {favourites &&
               favourites.map((JOB, i) => (
-                <ListGroupItem key={i}>
+                <ListGroupItem key={i} style={{ backgroundColor: " #adadad9b"}}>
                   <Row>
                     <Col md={11}>
-                    <span >{JOB}</span>
+                    <span style={{color: "white"}} >{JOB}</span>
                     </Col>
                     <Col md={1} >
                        <Button variant="outline-danger" size="sm" onClick={() => removeFromFav(JOB)}>REMOVE</Button>
@@ -31,6 +39,11 @@ const Favourites = ({ favourites, removeFromFav }) => {
                 </ListGroupItem>
               ))}
           </ListGroup>
+        </Col>
+        <Col>
+        <Button variant="link" onClick={() => {navigate("/")}} className={location.pathname === "/" ? "nav-link active" : "nav-link"}>
+                  <span>Go back Home</span>
+        </Button>
         </Col>
       </Row>
     </Container>
