@@ -1,0 +1,14 @@
+Jobs Search Engine
+You are in charge of improving an existing project, a search engine for remote job offerings.
+
+➡️ Today you’re going to finish the project implementing loading indicators, handling errors and adding redux-persist.
+
+ 
+
+TASKS: (start from yesterday’s work)
+Insert new actions and reducer cases for handling loading processes and errors like we did in lecture. Attach to those properties spinners and error messages in the affected components.
+Install the redux-persist package from npm (npm i redux-persist) and add it to your project. The goal is to make your Redux store survive a browser refresh.
+Keep intact the rest of the functionalities.
+[EXTRA]
+
+encrypt your storage engine with AES using redux-persist-transform-encrypt, and save the key into a .env file.
